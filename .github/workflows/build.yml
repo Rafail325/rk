@@ -8,6 +8,10 @@ on:
   pull_request:
     branches: [ main ]
 
+
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -42,7 +46,7 @@ jobs:
         echo "Package: memento-pattern" > debian/DEBIAN/control
         echo "Version: 1.0" >> debian/DEBIAN/control
         echo "Architecture: amd64" >> debian/DEBIAN/control
-        echo "Maintainer: Raf <teas@mail.ru>" >> debian/DEBIAN/control
+        echo "Maintainer: Your Name <your.email@example.com>" >> debian/DEBIAN/control
         echo "Description: Memento Pattern Implementation" >> debian/DEBIAN/control
         mkdir -p debian/usr/bin
         if [ ! -f "app/memento_app" ]; then
@@ -63,6 +67,8 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/v')
+    permissions:
+      contents: write
     steps:
     - uses: actions/checkout@v4
     
