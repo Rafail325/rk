@@ -1,0 +1,44 @@
+name: CI/CD Pipeline
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        submodules: recursive
+        
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y cmake g++ build-essential
+        
+    - name: Configure and Build
+      run: |
+        mkdir build && cd build
+        cmake .. -DCMAKE_BUILD_TYPE=Release
+        make -j4
+        
+    - name: Run tests
+      working-directory: ./build
+      run: |
+        ctest --output-on-failure
+        
+    - name: Create DEB package
+      run: |
+        mkdir -p package/usr/local/lib
+        cp ./build/libmemento_pattern.a package/usr/local/lib/
+        mkdir -p package/DEBIAN
+        echo "Package: memento-pattern" > package/DEBIAN/control
+        echo "Version: 1.0" >> package/DEBIAN/control
+        echo "Architecture: amd64" >> package/DEBIAN/control
+        echo "Maintainer: Your Name <your.email@example.com>" >> package/DEBIAN/control
+        echo "Description: Memento Pattern Implementation" >> package/DEBIAN/control
+        dpkg-deb --build package memento-pattern.deb
+        
+    - uses: actions/upload-artifact@v3
+      with:
+        name: memento-pattern
+        path: ./memento-pattern.deb

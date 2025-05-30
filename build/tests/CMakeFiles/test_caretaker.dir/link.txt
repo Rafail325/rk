@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/test_caretaker.dir/TestCareTaker.cpp.o -o test_caretaker  ../libmemento_pattern.a ../extern/Catch2/src/libCatch2.a

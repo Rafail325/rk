@@ -1,0 +1,5 @@
+if(EXISTS "/home/hjjjkj/Rafail325/workspace/projects/MementoPattern/build/tests/test_memento-b12d07c_tests.cmake")
+  include("/home/hjjjkj/Rafail325/workspace/projects/MementoPattern/build/tests/test_memento-b12d07c_tests.cmake")
+else()
+  add_test(test_memento_NOT_BUILT-b12d07c test_memento_NOT_BUILT-b12d07c)
+endif()

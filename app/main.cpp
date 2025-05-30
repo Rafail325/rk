@@ -1,5 +1,5 @@
-#include <ConcreteCareTaker.h>
-#include <ConcreteOrignator.h>
+#include "../src/ConcreteCareTaker.h"
+#include "../src/ConcreteOrignator.h"
 
 #include <iostream>
 
@@ -8,7 +8,6 @@ int main()
     IOrignator *orignator = new ConcreteOrignator();
     ICareTaker *careTaker = new ConcreteCareTaker(orignator);
 
-    // Add states
     orignator->setState(1);
     careTaker->save();
 
