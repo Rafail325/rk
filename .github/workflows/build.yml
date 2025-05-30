@@ -17,22 +17,22 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y cmake build-essential
     
-    - name: Create build directory
-      run: mkdir build && cd build
-    
-    - name: Configure with CMake
-      run: cmake ..
-    
-    - name: Build
-      run: make
+    - name: Configure and Build
+      run: |
+        mkdir build
+        cd build
+        cmake $GITHUB_WORKSPACE
+        make
     
     - name: Run tests
+      working-directory: build
       run: |
         ./tests/test_memento
         ./tests/test_caretaker
         ./tests/test_originator
     
     - name: Create deb package
+      working-directory: build
       run: |
         sudo apt-get install -y debhelper
         mkdir -p debian/DEBIAN
