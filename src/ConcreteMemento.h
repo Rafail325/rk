@@ -1,16 +1,15 @@
-#include <ConcreteOrignator.h>
+#include "ConcreteOrignator.h"
 
-class ConcreteMemento : private IMemento
+class ConcreteMemento : public IMemento
 {
 public:
     ConcreteMemento(const int &state);
-
-private:
-    friend class ConcreteOrignator;
 
     virtual int getState() const override;
     virtual void setState(const int &state) override;
 
 private:
+    friend class ConcreteOrignator;
+
     int m_state;
 };

@@ -44,11 +44,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/hjjjkj/Rafail325/workspace/projects/MementoPattern/build/extern/Catch2/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
   include("/home/hjjjkj/Rafail325/workspace/projects/MementoPattern/build/app/cmake_install.cmake")
 endif()
 

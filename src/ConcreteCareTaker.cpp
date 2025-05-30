@@ -10,7 +10,10 @@ void ConcreteCareTaker::save()
 
 void ConcreteCareTaker::undo()
 {
-    IMemento *last = m_history.back();
-    m_orignator->setMemento(*last);
-    m_history.pop_back();
+    if (!m_history.empty()) {
+        IMemento *last = m_history.back();
+        m_orignator->setMemento(*last);
+        delete last;
+        m_history.pop_back();
+    }
 }

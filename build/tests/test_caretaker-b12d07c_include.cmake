@@ -1,5 +1,0 @@
-if(EXISTS "/home/hjjjkj/Rafail325/workspace/projects/MementoPattern/build/tests/test_caretaker-b12d07c_tests.cmake")
-  include("/home/hjjjkj/Rafail325/workspace/projects/MementoPattern/build/tests/test_caretaker-b12d07c_tests.cmake")
-else()
-  add_test(test_caretaker_NOT_BUILT-b12d07c test_caretaker_NOT_BUILT-b12d07c)
-endif()

@@ -2,7 +2,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/test_originator.dir/TestOrignator.cpp.o"
   "CMakeFiles/test_originator.dir/TestOrignator.cpp.o.d"
   "test_originator"
-  "test_originator-b12d07c_tests.cmake"
   "test_originator.pdb"
 )
 

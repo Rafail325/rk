@@ -2,7 +2,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/test_memento.dir/TestMemento.cpp.o"
   "CMakeFiles/test_memento.dir/TestMemento.cpp.o.d"
   "test_memento"
-  "test_memento-b12d07c_tests.cmake"
   "test_memento.pdb"
 )
 

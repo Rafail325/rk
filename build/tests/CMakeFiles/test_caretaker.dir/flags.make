@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/hjjjkj/Rafail325/workspace/projects/MementoPattern/include -I/home/hjjjkj/Rafail325/workspace/projects/MementoPattern/extern/Catch2/src/catch2/.. -I/home/hjjjkj/Rafail325/workspace/projects/MementoPattern/build/extern/Catch2/generated-includes
+CXX_INCLUDES = -I/home/hjjjkj/Rafail325/workspace/projects/MementoPattern/include
 
 CXX_FLAGS = -std=gnu++17
 

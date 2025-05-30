@@ -6,7 +6,7 @@
 class ConcreteOrignator : public IOrignator
 {
 public:
-    ConcreteOrignator() = default;
+    ConcreteOrignator();
     virtual int getState() const override;
     virtual void setState(const int &state) override;
     virtual void setMemento(const IMemento &memento) override;

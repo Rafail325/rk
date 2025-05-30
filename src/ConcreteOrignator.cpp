@@ -1,6 +1,8 @@
 #include "ConcreteOrignator.h"
 #include <ConcreteMemento.h>
 
+ConcreteOrignator::ConcreteOrignator() : m_state(0) {}
+
 int ConcreteOrignator::getState() const
 {
     return m_state;

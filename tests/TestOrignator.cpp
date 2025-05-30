@@ -1,33 +1,29 @@
-#include "catch2/catch_test_macros.hpp"
+#include <cassert>
 #include "../src/ConcreteOrignator.h"
 #include "../src/ConcreteMemento.h"
 
-TEST_CASE("ConcreteOrignator functionality", "[originator]") {
+int main() {
+    // Test creating originator
     ConcreteOrignator originator;
+    assert(originator.getState() == 0); // default state
     
-    SECTION("State management") {
-        originator.setState(10);
-        REQUIRE(originator.getState() == 10);
-        
-        originator.setState(20);
-        REQUIRE(originator.getState() == 20);
-    }
+    // Test state modification
+    originator.setState(42);
+    assert(originator.getState() == 42);
     
-    SECTION("Memento creation") {
-        originator.setState(30);
-        IMemento* memento = originator.createMemento();
-        REQUIRE(memento->getState() == 30);
-        
-        ConcreteMemento* concrete = dynamic_cast<ConcreteMemento*>(memento);
-        REQUIRE(concrete != nullptr);
-        
-        delete memento;
-    }
+    // Test creating memento
+    auto memento = originator.createMemento();
+    assert(memento != nullptr);
+    assert(memento->getState() == 42);
     
-    SECTION("Memento restoration") {
-        originator.setState(40);
-        ConcreteMemento memento(50);
-        originator.setMemento(memento);
-        REQUIRE(originator.getState() == 50);
-    }
+    // Test state modification
+    originator.setState(100);
+    assert(originator.getState() == 100);
+    
+    // Test restoring from memento
+    originator.setMemento(*memento);
+    assert(originator.getState() == 42);
+    
+    delete memento;
+    return 0;
 }

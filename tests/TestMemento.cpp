@@ -1,15 +1,14 @@
-#include "catch2/catch_test_macros.hpp"
-#include "../src/ConcreteMemento.h" 
+#include <cassert>
+#include "../src/ConcreteMemento.h"
 
-TEST_CASE("ConcreteMemento functionality", "[memento]") {
+int main() {
+    // Test initial state
     ConcreteMemento memento(42);
+    assert(memento.getState() == 42);
     
-    SECTION("Initial state") {
-        REQUIRE(memento.getState() == 42);
-    }
+    // Test state modification
+    memento.setState(100);
+    assert(memento.getState() == 100);
     
-    SECTION("State modification") {
-        memento.setState(100);
-        REQUIRE(memento.getState() == 100);
-    }
+    return 0;
 }
