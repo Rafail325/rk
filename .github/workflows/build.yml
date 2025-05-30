@@ -23,6 +23,7 @@ jobs:
         cd build
         cmake $GITHUB_WORKSPACE
         make
+        ls -la  # Проверяем, что файлы созданы
     
     - name: Run tests
       working-directory: build
@@ -42,7 +43,12 @@ jobs:
         echo "Maintainer: Your Name <your.email@example.com>" >> debian/DEBIAN/control
         echo "Description: Memento Pattern Implementation" >> debian/DEBIAN/control
         mkdir -p debian/usr/bin
-        cp memento_app debian/usr/bin/
+        if [ ! -f "app/memento_app" ]; then
+          echo "Error: memento_app not found in app directory"
+          ls -la app/
+          exit 1
+        fi
+        cp app/memento_app debian/usr/bin/
         dpkg-deb --build debian memento-pattern_1.0_amd64.deb
     
     - name: Upload artifact
