@@ -1,2 +1,0 @@
-/usr/bin/ar qc libmemento_pattern.a CMakeFiles/memento_pattern.dir/src/ConcreteCareTaker.cpp.o CMakeFiles/memento_pattern.dir/src/ConcreteMemento.cpp.o CMakeFiles/memento_pattern.dir/src/ConcreteOrignator.cpp.o
-/usr/bin/ranlib libmemento_pattern.a

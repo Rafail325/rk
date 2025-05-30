@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/memento_app.dir/main.cpp.o -o memento_app  ../libmemento_pattern.a
